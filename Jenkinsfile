@@ -20,7 +20,7 @@ pipeline {
                         sh "git config user.name bkelava"
                         sh "git config user.email bozidar.kelava@gmail.com"
                         sh """#!/bin/bash
-                            sed -i 's,\\(image: kelava/kub-demo-auth:\\)latest,\\1${params.DOCKERTAG},g' kubernetes.yaml
+                            sed -i 's,\\(image: kelava/kub-demo-auth:\\).*,\\1${params.DOCKERTAG},g' kubernetes.yaml
                         """
                         sh "git add ."
                         sh """#!/bin/bash
