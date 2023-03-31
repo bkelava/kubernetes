@@ -19,7 +19,9 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'github_password', usernameVariable: 'github_username')]) {
                         sh "git config user.name bkelava"
                         sh "git config user.email bozidar.kelava@gmail.com"
-                        sh ""
+                        sh """#!/bin/bash
+                            sed -i 's,\\(image: kelava/kub-demo-auth:\\)latest,\\1${env.BUILD_NUMBER},g' test.txt
+                        """
                         sh "git add ."
                         sh """#!/bin/bash
                             git commit -m 'Done by Jenkins Job --Update kubernetes configuration: ${env.BUILD_NUMBER}'
