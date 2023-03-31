@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: kelava/kub-demo-auth:7
+          image: kelava/kub-demo-auth:13
 ---
 apiVersion: v1
 kind: Service
