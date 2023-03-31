@@ -22,6 +22,15 @@ pipeline {
                         sh """#!/bin/bash
                             sed -i 's,\\(image: kelava/kub-demo-auth:\\).*,\\1${params.DOCKERTAG},g' kubernetes.yaml
                         """
+                        sh """#!/bin/bash
+                            sed -i 's,\\(image: kelava/kub-demo-frontend:\\).*,\\1${params.DOCKERTAG},g' kubernetes.yaml
+                        """
+                        sh """#!/bin/bash
+                            sed -i 's,\\(image: kelava/kub-demo-tasks:\\).*,\\1${params.DOCKERTAG},g' kubernetes.yaml
+                        """
+                        sh """#!/bin/bash
+                            sed -i 's,\\(image: kelava/kub-demo-users:\\).*,\\1${params.DOCKERTAG},g' kubernetes.yaml
+                        """
                         sh "git add ."
                         sh """#!/bin/bash
                             git commit -m 'Done by Jenkins Job --Update kubernetes configuration: ${env.BUILD_NUMBER}'
