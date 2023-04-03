@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: kelava/kub-demo-auth:14
+          image: kelava/kub-demo-auth:16
 ---
 apiVersion: v1
 kind: Service
@@ -46,7 +46,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: kelava/kub-demo-frontend:14
+          image: kelava/kub-demo-frontend:16
 ---
 apiVersion: v1
 kind: Service
@@ -77,7 +77,7 @@ spec:
     spec:
       containers:
         - name: tasks
-          image: kelava/kub-demo-tasks:14
+          image: kelava/kub-demo-tasks:16
           env:
             - name: AUTH_ADDRESS
               value: "auth-service.default"
@@ -113,7 +113,7 @@ spec:
     spec:
       containers:
         - name: users
-          image: kelava/kub-demo-users:14
+          image: kelava/kub-demo-users:16
           env:
             - name: AUTH_ADDRESS
               value: "auth-service.default"
